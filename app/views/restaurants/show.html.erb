@@ -14,5 +14,12 @@
 </ul>
 <p></p>
 
-<button class="btn btn-success"><%= link_to 'Add a review',  new_restaurant_review_path(@restaurant) %></button>
+<div class="card">
+  <%= simple_form_for [ @restaurant, @review ] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <%= f.submit "Submit", class: "btn btn-secondary" %>
+  <% end %>
+</div>
+
 <button class="btn btn-secondary"><%= link_to 'Return to list', restaurants_path %></button>
